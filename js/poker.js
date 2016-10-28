@@ -44,23 +44,79 @@ function rankHand(hand) {
 
   handRanks.sort(sortByRank);
 
-  if (false) {
+  if ( handRanks[0] == 1 &&
+       handRanks[1] == 10 &&
+       handRanks[2] == 11 &&
+       handRanks[3] == 12 &&
+       handRanks[4] == 13 &&
+       hand[0].suit == hand[1].suit &&
+       hand[1].suit == hand[2].suit &&
+       hand[2].suit == hand[3].suit &&
+       hand[3].suit == hand[4].suit
+     ) {
     return "Royal Flush";
-  } if (false) {
+  } if ( handRanks[0] + 1 == handRanks[1] &&
+         handRanks[1] + 1 == handRanks[2] &&
+         handRanks[2] + 1 == handRanks[3] &&
+         handRanks[3] + 1 == handRanks[4] &&
+         hand[0].suit == hand[1].suit &&
+         hand[1].suit == hand[2].suit &&
+         hand[2].suit == hand[3].suit &&
+         hand[3].suit == hand[4].suit
+       ) {
     return "Straight Flush";
-  } if (false) {
+  } if ( handRanks[0] == handRanks[1] &&
+         handRanks[1] == handRanks[2] &&
+         handRanks[2] == handRanks[3] ||
+         handRanks[1] == handRanks[2] &&
+         handRanks[2] == handRanks[3] &&
+         handRanks[3] == handRanks[4]
+       ) {
     return "Four of a Kind";
-  } if (handRanks[0] == handRanks[1] && handRanks[1] == handRanks[2] && handRanks[3] == handRanks[4] || handRanks[0] == handRanks[1] && handRanks[2] == handRanks[3] && handRanks[3] == handRanks[4] ) {
+  } if ( handRanks[0] == handRanks[1] &&
+         handRanks[1] == handRanks[2] &&
+         handRanks[3] == handRanks[4] ||
+         handRanks[0] == handRanks[1] &&
+         handRanks[2] == handRanks[3] &&
+         handRanks[3] == handRanks[4] 
+       ) {
     return "Full House";
-  } if (hand[0].suit == hand[1].suit && hand[1].suit == hand[2].suit && hand[2].suit == hand[3].suit && hand[3].suit == hand[4].suit ) {
+  } if ( hand[0].suit == hand[1].suit &&
+         hand[1].suit == hand[2].suit &&
+         hand[2].suit == hand[3].suit &&
+         hand[3].suit == hand[4].suit
+       ) {
     return "Flush";
-  } if (handRanks[0] + 1 == handRanks[1] && handRanks[1] + 1 == handRanks[2] && handRanks[2] + 1 == handRanks[3] && handRanks[3] + 1 == handRanks[4] || handRanks[0] == 1 && handRanks[1] == 10 && handRanks[2] == 11 && handRanks[3] == 12 && handRanks[4] == 13) {
+  } if ( handRanks[0] + 1 == handRanks[1] &&
+         handRanks[1] + 1 == handRanks[2] &&
+         handRanks[2] + 1 == handRanks[3] &&
+         handRanks[3] + 1 == handRanks[4] ||
+         handRanks[0] == 1 &&
+         handRanks[1] == 10 &&
+         handRanks[2] == 11 &&
+         handRanks[3] == 12 &&
+         handRanks[4] == 13
+       ) {
     return "Straight";
-  } if (handRanks[0] == handRanks[1] && handRanks[1] == handRanks[2] || handRanks[1] == handRanks[2] && handRanks[2] == handRanks[3] || handRanks[2] == handRanks[3] && handRanks[3] == handRanks[4] ) {
+  } if ( handRanks[0] == handRanks[1] &&
+         handRanks[1] == handRanks[2] ||
+         handRanks[1] == handRanks[2] &&
+         handRanks[2] == handRanks[3] ||
+         handRanks[2] == handRanks[3] &&
+         handRanks[3] == handRanks[4] 
+       ) {
     return "Three of a Kind";
-  } if (handRanks[0] == handRanks[1] && handRanks[2] == handRanks[3] || handRanks[1] == handRanks[2] && handRanks[3] ==handRanks[4] ) {
+  } if ( handRanks[0] == handRanks[1] &&
+         handRanks[2] == handRanks[3] ||
+         handRanks[1] == handRanks[2] &&
+         handRanks[3] ==handRanks[4] 
+       ) {
     return "Two Pair";
-  } if (handRanks[0] == handRanks[1] || handRanks[1] == handRanks[2] || handRanks[2] == handRanks[3] || handRanks[3] == handRanks[4] ) {
+  } if ( handRanks[0] == handRanks[1] ||
+         handRanks[1] == handRanks[2] || 
+         handRanks[2] == handRanks[3] || 
+         handRanks[3] == handRanks[4] 
+        ) {
     return "Pair";
   } else {
     return "High Card";

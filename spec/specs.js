@@ -70,6 +70,23 @@ fourOfAKind.push(new Card("1", "Clubs"));
 fourOfAKind.push(new Card("2", "Diamonds"));
 fourOfAKind.push(new Card("1", "Spades"));
 
+var straightFlush = [];
+
+straightFlush.push(new Card("3", "Clubs"));
+straightFlush.push(new Card("4", "Clubs"));
+straightFlush.push(new Card("5", "Clubs"));
+straightFlush.push(new Card("6", "Clubs"));
+straightFlush.push(new Card("7", "Clubs"));
+
+var royalFlush = [];
+
+royalFlush.push(new Card("13", "Spades"));
+royalFlush.push(new Card("12", "Spades"));
+royalFlush.push(new Card("11", "Spades"));
+royalFlush.push(new Card("10", "Spades"));
+royalFlush.push(new Card("1", "Spades"));
+
+
 describe("rankHand", function() {
 	it("it returns High Card for the corresponding hand", function() {
 		expect(rankHand(highCard)).to.eql("High Card");
@@ -105,5 +122,13 @@ describe("rankHand", function() {
 
 	it("it returns Four of a Kind for the corresponding hand", function() {
 		expect(rankHand(fourOfAKind)).to.eql("Four of a Kind");
-	});	
+	});
+
+	it("it returns Straight Flush for the corresponding hand", function() {
+		expect(rankHand(straightFlush)).to.eql("Straight Flush");
+	});
+
+	it("it returns Royal Flush for the corresponding hand", function() {
+		expect(rankHand(royalFlush)).to.eql("Royal Flush");
+	});
 });
