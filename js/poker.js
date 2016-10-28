@@ -45,65 +45,27 @@ function rankHand(hand) {
   handRanks.sort(sortByRank);
 
   if (false) {
-    return "Royal flush";
+    return "Royal Flush";
   } if (false) {
-    return "Straight flush";
+    return "Straight Flush";
   } if (false) {
-    return "Four of a kind";
+    return "Four of a Kind";
   } if (handRanks[0] == handRanks[1] && handRanks[1] == handRanks[2] && handRanks[3] == handRanks[4] || handRanks[0] == handRanks[1] && handRanks[2] == handRanks[3] && handRanks[3] == handRanks[4] ) {
-    return "Full house";
+    return "Full House";
   } if (hand[0].suit == hand[1].suit && hand[1].suit == hand[2].suit && hand[2].suit == hand[3].suit && hand[3].suit == hand[4].suit ) {
     return "Flush";
   } if (handRanks[0] + 1 == handRanks[1] && handRanks[1] + 1 == handRanks[2] && handRanks[2] + 1 == handRanks[3] && handRanks[3] + 1 == handRanks[4] || handRanks[0] == 1 && handRanks[1] == 10 && handRanks[2] == 11 && handRanks[3] == 12 && handRanks[4] == 13) {
     return "Straight";
   } if (handRanks[0] == handRanks[1] && handRanks[1] == handRanks[2] || handRanks[1] == handRanks[2] && handRanks[2] == handRanks[3] || handRanks[2] == handRanks[3] && handRanks[3] == handRanks[4] ) {
-    return "Three of a kind";
+    return "Three of a Kind";
   } if (handRanks[0] == handRanks[1] && handRanks[2] == handRanks[3] || handRanks[1] == handRanks[2] && handRanks[3] ==handRanks[4] ) {
-    return "Two pair";
+    return "Two Pair";
   } if (handRanks[0] == handRanks[1] || handRanks[1] == handRanks[2] || handRanks[2] == handRanks[3] || handRanks[3] == handRanks[4] ) {
     return "Pair";
   } else {
     return "High Card";
   }
 }
-
-// HANDS FOR TESTING ARE BELOW
-
-// Full house
-
-// hand.push(new Card("1", "Spades"));
-// hand.push(new Card("6", "Clubs"));
-// hand.push(new Card("1", "Clubs"));
-// hand.push(new Card("1", "Clubs"));
-// hand.push(new Card("6", "Clubs"));
-
-// hand.push(new Card("6", "Hearts"));
-// hand.push(new Card("6", "Clubs"));
-// hand.push(new Card("6", "Clubs"));
-// hand.push(new Card("8", "Clubs"));
-// hand.push(new Card("8", "Clubs"));
-
-// Flush
-
-// hand.push(new Card("1", "Clubs"));
-// hand.push(new Card("6", "Clubs"));
-// hand.push(new Card("7", "Clubs"));
-// hand.push(new Card("8", "Clubs"));
-// hand.push(new Card("9", "Clubs"));
-
-// Straight
-
-// hand.push(new Card("5", "Clubs"));
-// hand.push(new Card("6", "Clubs"));
-// hand.push(new Card("7", "Clubs"));
-// hand.push(new Card("8", "Clubs"));
-// hand.push(new Card("9", "Hearts"));
-
-// hand.push(new Card("1", "Hearts"));
-// hand.push(new Card("10", "Clubs"));
-// hand.push(new Card("11", "Clubs"));
-// hand.push(new Card("12", "Clubs"));
-// hand.push(new Card("13", "Clubs"));
 
 makeDeck();
 shuffle(deck);
