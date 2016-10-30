@@ -1,5 +1,9 @@
+var player = { money: 100, score: 0 };
+var gameStatus = 1;
 var deck = [];
 var hand = [];
+
+// player.name = prompt("Whats your name");
 
 function Card (rank, suit) {
   this.rank = rank;
@@ -120,6 +124,18 @@ function rankHand(hand) {
     return "Pair";
   } else {
     return "High Card";
+  }
+}
+
+function makeBet(bet) {
+  if (bet > player.money) {
+    return "You don't have enough money"
+  }
+}
+
+function gameOver(player) {
+  if (player.money == 0) {
+   return "Game over";
   }
 }
 

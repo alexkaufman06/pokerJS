@@ -86,6 +86,7 @@ royalFlush.push(new Card("11", "Spades"));
 royalFlush.push(new Card("10", "Spades"));
 royalFlush.push(new Card("1", "Spades"));
 
+var loser = { money: 0 };
 
 describe("rankHand", function() {
 	it("it returns High Card for the corresponding hand", function() {
@@ -130,5 +131,23 @@ describe("rankHand", function() {
 
 	it("it returns Royal Flush for the corresponding hand", function() {
 		expect(rankHand(royalFlush)).to.eql("Royal Flush");
+	});
+});
+
+describe("makeDeck", function() {
+	it("makes a deck of 52 cards", function() {
+		expect(deck.length).to.eql(52);
+	});
+});
+
+describe("makeBet", function() {
+	it("will not let you bet more money than you have", function() {
+		expect(makeBet(1000)).to.eql("You don't have enough money");
+	});
+});
+
+describe("gameOver", function() {
+	it("will end the game when player is out of money", function() {
+		expect(gameOver(loser)).to.eql("Game over");
 	});
 });
