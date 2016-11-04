@@ -12,34 +12,38 @@ function sortByRank(a,b) {
   return a - b;
 }
 
+function sayHello() {
+  alert("hello");
+}
+
+function makeDeck() {
+  var ranks = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"];
+  // 1=Ace; 11=Jack; 12=Queen; 13=King
+  var suits = ["Clubs", "Diamonds", "Hearts", "Spades"];
+
+  for (var s = 0; s < suits.length; s++) {
+    for (var r = 0; r < ranks.length; r++) {
+      deck.push(new Card(ranks[r], suits[s]));
+    }
+  }
+}
+
+function shuffle(deck) {
+  for (var i = deck.length; i; i--) {
+    var j = Math.floor(Math.random() * i);
+    [deck[i-1], deck[j]] = [deck[j], deck[i-1]];
+  }
+}
+
+function makeHand(deck) {
+  for (var i=0; i < 5; i++) {
+    hand.push(deck[i]);
+  }
+}
+
 var Poker = React.createClass({
   getInitialState: function() {
     return {gameOver: false};
-  },
-
-  makeDeck: function() {
-    var ranks = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"];
-    // 1=Ace; 11=Jack; 12=Queen; 13=King
-    var suits = ["Clubs", "Diamonds", "Hearts", "Spades"];
-
-    for (let s = 0; s < suits.length; s++) {
-      for (let r = 0; r < ranks.length; r++) {
-        deck.push(new Card(ranks[r], suits[s]));
-      }
-    }
-  },
-
-  shuffle: function() {
-    for (let i = deck.length; i; i--) {
-      let j = Math.floor(Math.random() * i);
-      [deck[i-1], deck[j]] = [deck[j], deck[i-1]];
-    }
-  },
-
-  makeHand: function() {
-    for (let i=0; i < 5; i++) {
-      hand.push(deck[i]);
-    }
   },
 
   rankHand: function() {
@@ -133,15 +137,16 @@ var Poker = React.createClass({
   newDeal: function() {
     deck = [];
     hand = [];
-    this.makeDeck();
-    this.shuffle();
-    this.makeHand();
+    makeDeck();
+    shuffle(deck);
+    makeHand(deck);
+    alert(hand[0].rank + " " + hand[0].suit)
   },
 
   render: function() {
-    this.makeDeck();
-    this.shuffle();
-    this.makeHand();
+    makeDeck();
+    shuffle(deck);
+    makeHand(deck);
 
     return <div>
       <h1 className="text-center">Poker</h1>
@@ -161,6 +166,9 @@ var Poker = React.createClass({
       	<div className="col-md-2">
       		<p>{hand[4].rank} {hand[4].suit}</p>
       	</div>
+      </div>
+      <div className="text-center">
+        <button onClick={this.newDeal} className="btn btn-success">New Hand</button>
       </div>
       <hr/>
       <h3 className="text-center">{this.rankHand()}</h3>
