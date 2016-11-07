@@ -43,7 +43,7 @@ function makeHand(deck) {
 
 var Poker = React.createClass({
   getInitialState: function() {
-    return {gameOver: false};
+    return {gameOver: false, newHand: false};
   },
 
   rankHand: function() {
@@ -135,15 +135,12 @@ var Poker = React.createClass({
   },
 
   newDeal: function() {
-    deck = [];
-    hand = [];
-    makeDeck();
-    shuffle(deck);
-    makeHand(deck);
-    alert(hand[0].rank + " " + hand[0].suit)
+    this.setState({newHand: true});
   },
 
-  render: function() {
+  renderHand: function() {
+    deck = [];
+    hand = [];
     makeDeck();
     shuffle(deck);
     makeHand(deck);
@@ -151,21 +148,21 @@ var Poker = React.createClass({
     return <div>
       <h1 className="text-center">Poker</h1>
       <div className="row text-center">
-      	<div className="col-md-2 col-md-offset-1">
-      		<p>{hand[0].rank} {hand[0].suit}</p>
-      	</div>
-      	<div className="col-md-2">
-      		<p>{hand[1].rank} {hand[1].suit}</p>
-      	</div>
-      	<div className="col-md-2">
-      		<p>{hand[2].rank} {hand[2].suit}</p>
-      	</div>
-      	<div className="col-md-2">
-      		<p>{hand[3].rank} {hand[3].suit}</p>
-      	</div>
-      	<div className="col-md-2">
-      		<p>{hand[4].rank} {hand[4].suit}</p>
-      	</div>
+        <div className="col-md-2 col-md-offset-1">
+          <p>{hand[0].rank} {hand[0].suit}</p>
+        </div>
+        <div className="col-md-2">
+          <p>{hand[1].rank} {hand[1].suit}</p>
+        </div>
+        <div className="col-md-2">
+          <p>{hand[2].rank} {hand[2].suit}</p>
+        </div>
+        <div className="col-md-2">
+          <p>{hand[3].rank} {hand[3].suit}</p>
+        </div>
+        <div className="col-md-2">
+          <p>{hand[4].rank} {hand[4].suit}</p>
+        </div>
       </div>
       <div className="text-center">
         <button onClick={this.newDeal} className="btn btn-success">New Hand</button>
@@ -173,6 +170,17 @@ var Poker = React.createClass({
       <hr/>
       <h3 className="text-center">{this.rankHand()}</h3>
     </div>
+  },
+
+  renderButton: function() {
+    return <div className="text-center">
+        <h1>Poker</h1>
+        <button onClick={this.newDeal} className="btn btn-success">Deal me in!</button>
+      </div>
+  },
+
+  render: function() {
+    return (this.state.newHand) ? this.renderHand() : this.renderButton()
   }
 });
 
