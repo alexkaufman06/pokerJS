@@ -1,5 +1,5 @@
 var player = { money: 100, score: 0 };
-var gameStatus = 1;
+var name = "";
 var deck = [];
 var hand = [];
 
@@ -12,38 +12,34 @@ function sortByRank(a,b) {
   return a - b;
 }
 
-function sayHello() {
-  alert("hello");
-}
-
-function makeDeck() {
-  var ranks = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"];
-  // 1=Ace; 11=Jack; 12=Queen; 13=King
-  var suits = ["Clubs", "Diamonds", "Hearts", "Spades"];
-
-  for (var s = 0; s < suits.length; s++) {
-    for (var r = 0; r < ranks.length; r++) {
-      deck.push(new Card(ranks[r], suits[s]));
-    }
-  }
-}
-
-function shuffle(deck) {
-  for (var i = deck.length; i; i--) {
-    var j = Math.floor(Math.random() * i);
-    [deck[i-1], deck[j]] = [deck[j], deck[i-1]];
-  }
-}
-
-function makeHand(deck) {
-  for (var i=0; i < 5; i++) {
-    hand.push(deck[i]);
-  }
-}
-
 var Poker = React.createClass({
   getInitialState: function() {
-    return {gameOver: false, newHand: false};
+    return {gameOver: false, newHand: false, gameStart: false};
+  },
+
+  makeDeck: function() {
+    var ranks = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"];
+    // 1=Ace; 11=Jack; 12=Queen; 13=King
+    var suits = ["Clubs", "Diamonds", "Hearts", "Spades"];
+
+    for (var s = 0; s < suits.length; s++) {
+      for (var r = 0; r < ranks.length; r++) {
+        deck.push(new Card(ranks[r], suits[s]));
+      }
+    }
+  },
+
+  shuffle: function() {
+    for (var i = deck.length; i; i--) {
+      var j = Math.floor(Math.random() * i);
+      [deck[i-1], deck[j]] = [deck[j], deck[i-1]];
+    }
+  },
+
+  makeHand: function() {
+    for (var i=0; i < 5; i++) {
+      hand.push(deck[i]);
+    }
   },
 
   rankHand: function() {
@@ -135,15 +131,26 @@ var Poker = React.createClass({
   },
 
   newDeal: function() {
+    this.setState({gameStart: true});
     this.setState({newHand: true});
+  },
+
+  renderStart: function() {
+    name = prompt("What's your name?");
+
+    return <div className="text-center">
+      <h1>Poker</h1>
+      <p>Let's play some poker {name}!</p>
+      <button onClick={this.newDeal} className="btn btn-success">Deal me in!</button>
+    </div>
   },
 
   renderHand: function() {
     deck = [];
     hand = [];
-    makeDeck();
-    shuffle(deck);
-    makeHand(deck);
+    this.makeDeck();
+    this.shuffle();
+    this.makeHand();
 
     return <div>
       <h1 className="text-center">Poker</h1>
@@ -166,21 +173,20 @@ var Poker = React.createClass({
       </div>
       <div className="text-center">
         <button onClick={this.newDeal} className="btn btn-success">New Hand</button>
+        <hr/>
+        <p>{name}: ${player.money}</p>
+        <hr/>
+        <h3>{this.rankHand()}</h3>
       </div>
-      <hr/>
-      <h3 className="text-center">{this.rankHand()}</h3>
     </div>
   },
 
-  renderButton: function() {
-    return <div className="text-center">
-        <h1>Poker</h1>
-        <button onClick={this.newDeal} className="btn btn-success">Deal me in!</button>
-      </div>
-  },
-
   render: function() {
-    return (this.state.newHand) ? this.renderHand() : this.renderButton()
+    if (this.state.gameStart == false) {
+      return this.renderStart()
+    } else if (this.state.newHand) {
+      return this.renderHand()
+    }
   }
 });
 
