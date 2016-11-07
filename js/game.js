@@ -1,4 +1,4 @@
-var player = { money: 100, score: 0 };
+var player = { money: 100, score: 0, bet: 10 };
 var name = "";
 var deck = [];
 var hand = [];
