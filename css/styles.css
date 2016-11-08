@@ -6,7 +6,73 @@ h1, h3 {
 	color: #000;
 }
 
-
-p {
+h4 {
 	color: #FFF;
+}
+
+.card {
+	position: relative;
+	float: left;
+	margin-right: 10px;
+	width: 150px;
+	height: 220px;
+	border-radius: 10px;
+	background: #FFF;
+	-webkit-box-shadow: 3px 3px 7px rgba(0,0,0,0.3);
+	box-shadow: 3px 3px 7px rgba(0,0,0,0.3);
+}
+
+.suitdiamonds, .suithearts {
+	color: red;
+}
+
+.suitspades, .suitclubs {
+	color: #000;
+}
+
+.top-left {
+	margin-left: -115px;
+	font-size: 20px;
+}
+
+.bottom-right {
+	font-size: 20px;
+	margin-left: 117px;
+	margin-top: 147px;
+	-ms-transform: rotate(180deg); /* IE 9 */
+  -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+  transform: rotate(180deg);
+}
+
+.suitclubs:before, .suitclubs:after {
+	content: "♣";
+}
+
+.suithearts:before, .suithearts:after {
+	content: "♥";
+}
+
+.suitspades:before, .suitspades:after {
+	content: "♠";
+}
+
+.suitdiamonds:before, .suitdiamonds:after {
+	content: "♦";
+}
+
+div[class*='suit']:before {
+	position: absolute;
+	font-size: 30px;
+	left: 9px;
+	top: 11px;
+}
+
+div[class*='suit']:after {
+	position: absolute;
+	font-size: 30px;
+	right: 9px;
+	bottom: 11px;
+	-ms-transform: rotate(180deg); /* IE 9 */
+  -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+  transform: rotate(180deg);
 }
