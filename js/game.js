@@ -20,7 +20,7 @@ var Poker = React.createClass({
   makeDeck: function() {
     var ranks = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"];
     // 1=Ace; 11=Jack; 12=Queen; 13=King
-    var suits = ["Clubs", "Diamonds", "Hearts", "Spades"];
+    var suits = ["suitclubs", "suitdiamonds", "suithearts", "suitspades"];
 
     for (var s = 0; s < suits.length; s++) {
       for (var r = 0; r < ranks.length; r++) {
@@ -130,6 +130,20 @@ var Poker = React.createClass({
     }
   },
 
+  renderFaceCard: function(cardRank) {
+    if (cardRank == 1) {
+      return "A";
+    } else if (cardRank == 11) {
+      return "J";
+    } else if (cardRank == 12) {
+      return "Q";
+    } else if (cardRank == 13) {
+      return "K";
+    } else {
+      return cardRank;
+    }
+  },
+
   newDeal: function() {
     this.setState({gameStart: true});
     this.setState({newHand: true});
@@ -140,7 +154,7 @@ var Poker = React.createClass({
 
     return <div className="text-center">
       <h1>Poker</h1>
-      <p>Let's play some poker {name}!</p>
+      <h4>Let's play some poker {name}!</h4>
       <button onClick={this.newDeal} className="btn btn-success">Deal me in!</button>
     </div>
   },
@@ -156,25 +170,41 @@ var Poker = React.createClass({
       <h1 className="text-center">Poker</h1>
       <div className="row text-center">
         <div className="col-md-2 col-md-offset-1">
-          <p>{hand[0].rank} {hand[0].suit}</p>
+          <div className={"card " + hand[0].suit}>
+            <p className="top-left">{this.renderFaceCard(hand[0].rank)}</p>
+            <p className="bottom-right">{this.renderFaceCard(hand[0].rank)}</p>
+          </div>
         </div>
         <div className="col-md-2">
-          <p>{hand[1].rank} {hand[1].suit}</p>
+          <div className={"card " + hand[1].suit}>
+            <p className="top-left">{this.renderFaceCard(hand[1].rank)}</p>
+            <p className="bottom-right">{this.renderFaceCard(hand[1].rank)}</p>
+          </div>
         </div>
         <div className="col-md-2">
-          <p>{hand[2].rank} {hand[2].suit}</p>
+          <div className={"card " + hand[2].suit}>
+            <p className="top-left">{this.renderFaceCard(hand[2].rank)}</p>
+            <p className="bottom-right">{this.renderFaceCard(hand[2].rank)}</p>
+          </div>
         </div>
         <div className="col-md-2">
-          <p>{hand[3].rank} {hand[3].suit}</p>
+          <div className={"card " + hand[3].suit}>
+            <p className="top-left">{this.renderFaceCard(hand[3].rank)}</p>
+            <p className="bottom-right">{this.renderFaceCard(hand[3].rank)}</p>
+          </div>
         </div>
         <div className="col-md-2">
-          <p>{hand[4].rank} {hand[4].suit}</p>
+          <div className={"card " + hand[4].suit}>
+            <p className="top-left">{this.renderFaceCard(hand[4].rank)}</p>
+            <p className="bottom-right">{this.renderFaceCard(hand[4].rank)}</p>
+          </div>
         </div>
       </div>
+      <br/>
       <div className="text-center">
         <button onClick={this.newDeal} className="btn btn-success">New Hand</button>
         <hr/>
-        <p>{name}: ${player.money}</p>
+        <h4>{name}: ${player.money}</h4>
         <hr/>
         <h3>{this.rankHand()}</h3>
       </div>
