@@ -37,8 +37,8 @@ h4 {
 
 .bottom-right {
 	font-size: 20px;
-	margin-left: 117px;
-	margin-top: 147px;
+	margin-left: 113px;
+	margin-top: -62px;
 	-ms-transform: rotate(180deg); /* IE 9 */
   -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
   transform: rotate(180deg);
@@ -58,6 +58,75 @@ h4 {
 
 .suitdiamonds:before, .suitdiamonds:after {
 	content: "♦";
+}
+
+.new-hand {
+	position: absolute;
+	margin-left: -59px;
+}
+
+.rotate {
+	transform: rotate(180deg);
+}
+
+.ace {
+	font-size: 75px;
+	margin-top: -24px;
+}
+
+.two {
+	margin-top: -95px;
+	padding-bottom: 17px;
+	font-size: 50px;
+}
+
+.two-top {
+	margin-top: -19px;
+	font-size: 50px;
+}
+
+.three {
+	font-size: 50px;
+	margin-top: -56px;
+}
+
+.three-middle {
+	font-size: 50px;
+	margin-top: -81px;
+}
+
+.three-bottom {
+	font-size: 50px;
+	margin-top: -80px;
+	margin-bottom: 31px;
+}
+
+.four-five-size {
+	font-size: 50px;
+}
+
+.four-five-top {
+	margin-top: -65px;
+}
+
+.four-five-left {
+	margin-left: 40px;
+}
+
+.four-five-right {
+	margin-right: 35px;
+}
+
+.four-bottom-left {
+	margin-left: 70px;
+}
+
+.four-five-bottom {
+	margin-bottom: -92px;
+}
+
+.four-five-middle {
+	margin-top: -70px;
 }
 
 div[class*='suit']:before {
