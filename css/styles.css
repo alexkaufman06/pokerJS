@@ -23,7 +23,7 @@ h4 {
 }
 
 .suitdiamonds, .suithearts {
-	color: red;
+	color: #c90000;
 }
 
 .suitspades, .suitclubs {
@@ -31,33 +31,17 @@ h4 {
 }
 
 .top-left {
-	margin-left: -115px;
+	margin-left: -125px;
 	font-size: 20px;
 }
 
 .bottom-right {
 	font-size: 20px;
-	margin-left: 113px;
-	margin-top: -62px;
+	margin-left: 122px;
+	margin-top: 145px;
 	-ms-transform: rotate(180deg); /* IE 9 */
   -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
   transform: rotate(180deg);
-}
-
-.suitclubs:before, .suitclubs:after {
-	content: "♣";
-}
-
-.suithearts:before, .suithearts:after {
-	content: "♥";
-}
-
-.suitspades:before, .suitspades:after {
-	content: "♠";
-}
-
-.suitdiamonds:before, .suitdiamonds:after {
-	content: "♦";
 }
 
 .new-hand {
@@ -69,64 +53,316 @@ h4 {
 	transform: rotate(180deg);
 }
 
-.ace {
-	font-size: 75px;
-	margin-top: -24px;
+.ace-suithearts {
+	background-image: url('../images/h1.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
 }
 
-.two {
-	margin-top: -95px;
-	padding-bottom: 17px;
-	font-size: 50px;
+.ace-suitspades {
+	background-image: url('../images/s1.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
 }
 
-.two-top {
-	margin-top: -19px;
-	font-size: 50px;
+.ace-suitdiamonds {
+	background-image: url('../images/d1.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
 }
 
-.three {
-	font-size: 50px;
-	margin-top: -56px;
+.ace-suitclubs {
+	background-image: url('../images/c1.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
 }
 
-.three-middle {
-	font-size: 50px;
-	margin-top: -81px;
+.two-suithearts {
+	background-image: url('../images/h2.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
 }
 
-.three-bottom {
-	font-size: 50px;
-	margin-top: -80px;
-	margin-bottom: 31px;
+.two-suitspades {
+	background-image: url('../images/s2.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
 }
 
-.four-five-size {
-	font-size: 50px;
+.two-suitdiamonds {
+	background-image: url('../images/d2.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
 }
 
-.four-five-top {
-	margin-top: -65px;
+.two-suitclubs {
+	background-image: url('../images/c2.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
 }
 
-.four-five-left {
-	margin-left: 40px;
+.three-suithearts {
+	background-image: url('../images/h3.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
 }
 
-.four-five-right {
-	margin-right: 35px;
+.three-suitspades {
+	background-image: url('../images/s3.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
 }
 
-.four-bottom-left {
-	margin-left: 70px;
+.three-suitdiamonds {
+	background-image: url('../images/d3.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
 }
 
-.four-five-bottom {
-	margin-bottom: -92px;
+.three-suitclubs {
+	background-image: url('../images/c3.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
 }
 
-.four-five-middle {
-	margin-top: -70px;
+.four-suithearts {
+	background-image: url('../images/h4.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
+}
+
+.four-suitspades {
+	background-image: url('../images/s4.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
+}
+
+.four-suitdiamonds {
+	background-image: url('../images/d4.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
+}
+
+.four-suitclubs {
+	background-image: url('../images/c4.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
+}
+
+.five-suithearts {
+	background-image: url('../images/h5.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
+}
+
+.five-suitspades {
+	background-image: url('../images/s5.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
+}
+
+.five-suitdiamonds {
+	background-image: url('../images/d5.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
+}
+
+.five-suitclubs {
+	background-image: url('../images/c5.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
+}
+
+.six-suithearts {
+	background-image: url('../images/h6.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
+}
+
+.six-suitspades {
+	background-image: url('../images/s6.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
+}
+
+.six-suitdiamonds {
+	background-image: url('../images/d6.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
+}
+
+.six-suitclubs {
+	background-image: url('../images/c6.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
+}
+
+.seven-suithearts {
+	background-image: url('../images/h7.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
+}
+
+.seven-suitspades {
+	background-image: url('../images/s7.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
+}
+
+.seven-suitdiamonds {
+	background-image: url('../images/d7.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
+}
+
+.seven-suitclubs {
+	background-image: url('../images/c7.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
+}
+
+.eight-suithearts {
+	background-image: url('../images/h8.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
+}
+
+.eight-suitspades {
+	background-image: url('../images/s8.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
+}
+
+.eight-suitdiamonds {
+	background-image: url('../images/d8.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
+}
+
+.eight-suitclubs {
+	background-image: url('../images/c8.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
+}
+
+.nine-suithearts {
+	background-image: url('../images/h9.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
+}
+
+.nine-suitspades {
+	background-image: url('../images/s9.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
+}
+
+.nine-suitdiamonds {
+	background-image: url('../images/d9.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
+}
+
+.nine-suitclubs {
+	background-image: url('../images/c9.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
+}
+
+.ten-suithearts {
+	background-image: url('../images/h10.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
+}
+
+.ten-suitspades {
+	background-image: url('../images/s10.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
+}
+
+.ten-suitdiamonds {
+	background-image: url('../images/d10.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
+}
+
+.ten-suitclubs {
+	background-image: url('../images/c10.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
+}
+
+.jack-suithearts {
+	background-image: url('../images/h11.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
+}
+
+.jack-suitspades {
+	background-image: url('../images/s11.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
+}
+
+.jack-suitdiamonds {
+	background-image: url('../images/d11.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
+}
+
+.jack-suitclubs {
+	background-image: url('../images/c11.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
+}
+
+.queen-suithearts {
+	background-image: url('../images/h12.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
+}
+
+.queen-suitspades {
+	background-image: url('../images/s12.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
+}
+
+.queen-suitdiamonds {
+	background-image: url('../images/d12.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
+}
+
+.queen-suitclubs {
+	background-image: url('../images/c12.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
+}
+
+.king-suithearts {
+	background-image: url('../images/h13.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
+}
+
+.king-suitspades {
+	background-image: url('../images/s13.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
+}
+
+.king-suitdiamonds {
+	background-image: url('../images/d13.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
+}
+
+.king-suitclubs {
+	background-image: url('../images/c13.svg');
+	background-repeat: no-repeat;
+	background-size: 150px 220px;
 }
 
 div[class*='suit']:before {

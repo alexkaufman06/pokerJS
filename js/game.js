@@ -130,6 +130,36 @@ var Poker = React.createClass({
     }
   },
 
+  renderCard: function(cardRank, cardSuit) {
+    if (cardRank == 1) {
+      return "ace-" + cardSuit;
+    } else if (cardRank == 2) {
+      return "two-" + cardSuit;
+    } else if (cardRank == 3) {
+      return "three-" + cardSuit;
+    } else if (cardRank == 4) {
+      return "four-" + cardSuit;
+    } else if (cardRank == 5) {
+      return "five-" + cardSuit;
+    } else if (cardRank == 6) {
+      return "six-" + cardSuit;
+    } else if (cardRank == 7) {
+      return "seven-" + cardSuit;
+    } else if (cardRank == 8) {
+      return "eight-" + cardSuit;
+    } else if (cardRank == 9) {
+      return "nine-" + cardSuit;
+    } else if (cardRank == 10) {
+      return "ten-" + cardSuit;
+    } else if (cardRank == 11) {
+      return "jack-" + cardSuit;
+    } else if (cardRank == 12) {
+      return "queen-" + cardSuit;
+    } else {
+      return "king-" + cardSuit;
+    }
+  },
+
   renderFaceCard: function(cardRank) {
     if (cardRank == 1) {
       return "A";
@@ -156,84 +186,6 @@ var Poker = React.createClass({
     }
   },
 
-  renderCardRank: function(cardRank, cardSuit) {
-    if (cardRank == 1) {
-      return <div>
-        <p className="ace">{this.renderSuit(cardSuit)}</p>
-      </div>
-    } else if (cardRank == 2) {
-      return <div>
-        <p className="two-top">{this.renderSuit(cardSuit)}</p>
-        <p className="two rotate">{this.renderSuit(cardSuit)}</p>
-      </div>
-    } else if (cardRank == 3) {
-      return <div>
-        <p className="three">{this.renderSuit(cardSuit)}</p>
-        <p className="three-middle">{this.renderSuit(cardSuit)}</p>
-        <p className="rotate three-bottom">{this.renderSuit(cardSuit)}</p>
-      </div>
-    } else if (cardRank == 4) {
-      return <div className="four-five-size">
-        <div className="row four-five-top">
-          <div className="col-md-6">
-            <p className="four-five-left">{this.renderSuit(cardSuit)}</p>
-          </div>
-          <div className="col-md-6">
-            <p className="four-five-right">{this.renderSuit(cardSuit)}</p>
-          </div>
-        </div>
-        <div className="row four-five-bottom">
-          <div className="col-md-6">
-            <p className="rotate four-bottom-left">{this.renderSuit(cardSuit)}</p>
-          </div>
-          <div className="col-md-6">
-            <p className="rotate four-five-right">{this.renderSuit(cardSuit)}</p>
-          </div>
-        </div>
-      </div>
-    } else if (cardRank == 5) {
-      return <div className="four-five-size">
-        <div className="row four-five-top">
-          <div className="col-md-6">
-            <p className="four-five-left">{this.renderSuit(cardSuit)}</p>
-          </div>
-          <div className="col-md-6">
-            <p className="four-five-right">{this.renderSuit(cardSuit)}</p>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-md-12">
-            <p className="four-five-middle">{this.renderSuit(cardSuit)}</p>
-          </div>
-        </div>
-        <div className="row four-five-top four-five-bottom">
-          <div className="col-md-6">
-            <p className="four-five-middle four-five-left">{this.renderSuit(cardSuit)}</p>
-          </div>
-          <div className="col-md-6">
-            <p className="four-five-middle four-five-right">{this.renderSuit(cardSuit)}</p>
-          </div>
-        </div>
-      </div>
-    } else if (cardRank == 6) {
-      return "six";
-    } else if (cardRank == 7) {
-      return "seven";
-    } else if (cardRank == 8) {
-      return "eight";
-    } else if (cardRank == 9) {
-      return "nine";
-    } else if (cardRank == 10) {
-      return "ten";
-    } else if (cardRank == 11) {
-      return "jack";
-    } else if (cardRank == 12) {
-      return "queen";
-    } else if (cardRank == 13) {
-      return "king";
-    }
-  },
-
   newDeal: function() {
     this.setState({gameStart: true});
     this.setState({newHand: true});
@@ -244,7 +196,7 @@ var Poker = React.createClass({
 
     return <div className="text-center">
       <h1>Poker</h1>
-      <h4>Let's play some poker {name}!</h4>
+      <h4>Let&#8217;s play some poker {name}!</h4>
       <button onClick={this.newDeal} className="btn btn-default">Deal me in!</button>
     </div>
   },
@@ -260,37 +212,37 @@ var Poker = React.createClass({
       <h1 className="text-center">Poker</h1>
       <div className="row text-center">
         <div className="col-md-2 col-md-offset-1">
-          <div className={"card " + hand[0].suit}>
+          <div className={"card " + hand[0].suit + " " + this.renderCard(hand[0].rank, hand[0].suit)}>
             <p className="top-left">{this.renderFaceCard(hand[0].rank)}</p>
-            {this.renderCardRank(hand[0].rank, hand[0].suit)}
+
             <p className="bottom-right">{this.renderFaceCard(hand[0].rank)}</p>
           </div>
         </div>
         <div className="col-md-2">
-          <div className={"card " + hand[1].suit}>
+          <div className={"card " + hand[1].suit + " " + this.renderCard(hand[1].rank, hand[1].suit)}>
             <p className="top-left">{this.renderFaceCard(hand[1].rank)}</p>
-            {this.renderCardRank(hand[1].rank, hand[1].suit)}
+
             <p className="bottom-right">{this.renderFaceCard(hand[1].rank)}</p>
           </div>
         </div>
         <div className="col-md-2">
-          <div className={"card " + hand[2].suit}>
+          <div className={"card " + hand[2].suit + " " + this.renderCard(hand[2].rank, hand[2].suit)}>
             <p className="top-left">{this.renderFaceCard(hand[2].rank)}</p>
-            {this.renderCardRank(hand[2].rank, hand[2].suit)}
+
             <p className="bottom-right">{this.renderFaceCard(hand[2].rank)}</p>
           </div>
         </div>
         <div className="col-md-2">
-          <div className={"card " + hand[3].suit}>
+          <div className={"card " + hand[3].suit + " " + this.renderCard(hand[3].rank, hand[3].suit)}>
             <p className="top-left">{this.renderFaceCard(hand[3].rank)}</p>
-            {this.renderCardRank(hand[3].rank, hand[3].suit)}
+
             <p className="bottom-right">{this.renderFaceCard(hand[3].rank)}</p>
           </div>
         </div>
         <div className="col-md-2">
-          <div className={"card " + hand[4].suit}>
+          <div className={"card " + hand[4].suit + " " + this.renderCard(hand[4].rank, hand[4].suit)}>
             <p className="top-left">{this.renderFaceCard(hand[4].rank)}</p>
-            {this.renderCardRank(hand[4].rank, hand[4].suit)}
+
             <p className="bottom-right">{this.renderFaceCard(hand[4].rank)}</p>
           </div>
         </div>
